@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafi Con Smart Space | Pabrik Modifikasi Container Jabodetabek</title>
+    <meta name="description" content="Pabrik modifikasi container Jabodetabek. Jual container baru & bekas harga terbaik, siap kirim ke seluruh pelabuhan Indonesia.">
+    
+    <!-- Font Premium: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        obsidian: '#030712', 
+                        cardDark: '#0f172a',
+                        auraEmerald: '#10b981', 
+                        auraCyan: '#06b6d4', 
+                        tiktokRed: '#ff0050'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- CSS Custom: Glassmorphism & Bento Grid -->
+    <style>
+        body { 
+            background-color: #030712; 
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(24px); 
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 1.5rem; 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .glass-card:hover { 
+            border-color: rgba(16, 185, 129, 0.3); 
+            background: rgba(255, 255, 255, 0.05); 
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.15);
+        }
+
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.7);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .dropdown-group:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+        
+        /* Play Button Pulse */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .play-btn-pulse { animation: pulse-ring 2s infinite; }
+    </style>
+</head>
+<body class="text-slate-400 font-sans antialiased min-h-screen flex flex-col selection:bg-auraEmerald selection:text-black">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <span class="text-2xl font-black tracking-wider text-white group-hover:text-auraEmerald transition-colors">RAFI<span class="text-auraEmerald group-hover:text-white transition-colors">CON</span></span>
+                    <span class="hidden sm:inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-auraEmerald uppercase tracking-widest">Smart Space</span>
+                </a>
+                
+                <!-- Navigasi -->
+                <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                    <a href="index.html" class="text-auraEmerald font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-auraEmerald">BERANDA</a>
+                    
+                    <div class="relative dropdown-group py-6">
+                        <a href="produk/index.html" class="hover:text-white flex items-center gap-1 transition-colors">PRODUK <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                        <div class="dropdown-menu absolute top-[75px] -left-4 w-72 glass-card p-3 z-50">
+                            <a href="produk/kontainer-standar.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all mb-1">Kontainer Standar</a>
+                            <a href="produk/office-container.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all mb-1">Kontainer Khusus (Modifikasi)</a>
+                            <a href="produk/kontainer-standar.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all mb-1">DNV/Offshore Container</a>
+                            <a href="produk/kontainer-standar.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all mb-1">Refrigerated Container</a>
+                            <a href="produk/kontainer-standar.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all mb-1">ISO Tank Container</a>
+                            <a href="produk/kontainer-standar.html" class="block px-4 py-3 text-sm text-slate-300 hover:bg-white/10 hover:text-white rounded-xl transition-all">Dangerous Goods Container</a>
+                        </div>
+                    </div>
+
+                    <a href="modular/index.html" class="hover:text-white transition-colors">MODULAR</a>
+                    <a href="galeri/index.html" class="hover:text-white transition-colors">GALERI</a>
+                    <a href="info/index.html" class="hover:text-white transition-colors">INFO</a>
+                    <a href="kontak/index.html" class="hover:text-white transition-colors">KONTAK</a>
+                </div>
+
+                <a href="https://wa.me/6281234567890" target="_blank" class="hidden md:flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-xs text-obsidian bg-auraEmerald hover:bg-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all">
+                    <span>Hubungi Sales</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= KONTEN UTAMA ================= -->
+    <main class="pt-32 pb-16 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+
+        <!-- ================= 1. HERO SECTION (VIDEO FACADE & TYPOGRAPHY) ================= -->
+        <section class="mb-20 pt-8 lg:pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- KIRI: STRATEGI VIDEO FACADE (ZERO BLOAT) -->
+                <div class="lg:col-span-4 order-2 lg:order-1 flex justify-center lg:justify-end relative">
+                    <div class="absolute -left-10 top-10 w-48 h-48 bg-auraEmerald/20 blur-[80px] rounded-full pointer-events-none"></div>
+                    
+                    <!-- Kotak Video Facade (Gambar Dulu, Baru Video) -->
+                    <div id="hero-video-wrapper" class="relative w-full max-w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(16,185,129,0.15)] bg-obsidian cursor-pointer group" onclick="playHeroVideo()">
+                        
+                        <!-- Gambar Thumbnail Awal -->
+                        <img id="hero-thumbnail" src="header headline backround.png" alt="Video Pabrik Container" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <!-- Overlay Hitam Transparan -->
+                        <div id="hero-overlay" class="absolute inset-0 bg-black/40 flex flex-col justify-center items-center transition-opacity duration-300">
+                            <!-- Tombol Play -->
+                            <div class="w-20 h-20 rounded-full bg-auraEmerald text-obsidian flex items-center justify-center pl-1 play-btn-pulse">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+
+                        <!-- Tempat menyuntikkan video via Javascript nanti (Loading Instan) -->
+                        <div id="video-container" class="absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-500"></div>
+
+                    </div>
+                </div>
+
+                <!-- KANAN: TYPOGRAPHY HIGHLIGHT CONTRAST -->
+                <div class="lg:col-span-8 order-1 lg:order-2 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-slate-300 mb-8 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-auraEmerald"></span> Jaringan Pengiriman Seluruh Pelabuhan Indonesia
+                    </div>
+                    
+                    <!-- EYE-CATCHING HEADLINE -->
+                    <h1 class="text-[2.5rem] sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tighter mb-8">
+                        JUAL CONTAINER<br/>
+                        <span class="font-light italic text-slate-400">BARU & BEKAS</span><br/>
+                        <span class="relative inline-block mt-2">
+                            <!-- Highlight Box -->
+                            <span class="relative z-10 text-obsidian bg-auraEmerald px-6 py-2 rounded-lg inline-block transform -skew-x-6 shadow-[0_0_30px_rgba(16,185,129,0.4)]">
+                                HARGA TERBAIK
+                            </span>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl lg:mx-0 mx-auto mb-10 leading-relaxed font-medium">
+                        Pusat fabrikasi office container, booth bisnis, dan unit dry cargo terlengkap di Jabodetabek. Solusi arsitektur modular cepat saji, hemat biaya, dan siap suplai secara massal.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="produk/index.html" class="w-full sm:w-auto px-8 py-4 bg-auraEmerald text-obsidian font-extrabold rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all text-center tracking-wide">
+                            Eksplorasi Katalog Produk
+                        </a>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all text-center">
+                            Minta Penawaran RAB
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= 2. BENTO GRID: PROFIL & TIKTOK ================= -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="md:col-span-2 glass-card p-8 lg:p-10 relative overflow-hidden group">
+                <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-auraEmerald/10 blur-[80px] rounded-full pointer-events-none transition-all group-hover:bg-auraEmerald/20"></div>
+                <h2 class="text-3xl font-extrabold text-white mb-6 relative z-10">Rafi Con Smart Space</h2>
+                <p class="text-sm md:text-base leading-relaxed relative z-10 text-slate-300">
+                    Selamat datang di Rafi Con Smart Space. Apakah Anda mencari <strong class="text-white font-semibold">kontainer berkualitas untuk dibeli, disewa, atau dimodifikasi</strong> sesuai kebutuhan proyek Anda? Sebagai <strong class="text-white font-semibold">Pabrik Modifikasi Container Jabodetabek</strong> unggulan, kami menyediakan solusi kontainer untuk <strong class="text-white font-semibold">perdagangan logistik, gudang penyimpanan</strong>, hingga <strong class="text-white font-semibold">modifikasi kreatif container cafe</strong>. Dengan komitmen pada kualitas dan baja Corten kokoh, kami siap mewujudkan efisiensi bisnis Anda.
+                </p>
+            </div>
+            <div class="md:col-span-1 glass-card !border-tiktokRed/30 p-8 flex flex-col justify-center items-start relative overflow-hidden group hover:!border-tiktokRed/50">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-tiktokRed/10 blur-[60px] rounded-full pointer-events-none"></div>
+                <div class="w-12 h-12 rounded-full bg-tiktokRed/20 flex items-center justify-center text-tiktokRed animate-pulse border border-tiktokRed/50 mb-5 relative z-10 shadow-[0_0_15px_rgba(255,0,80,0.3)]">
+                    <span class="font-black text-[10px] tracking-widest">LIVE</span>
+                </div>
+                <div class="relative z-10 w-full">
+                    <h3 class="text-xl font-bold text-white mb-2">TikTok Live Studio</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed">Tonton langsung perakitan kontainer kami secara real-time dari pabrik.</p>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="w-full block text-center py-3 bg-tiktokRed text-white text-xs font-extrabold rounded-full hover:scale-105 transition-transform shadow-[0_4px_15px_rgba(255,0,80,0.4)]">Gabung Sekarang →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 3. BADGES SVG ICONS (FIX KOTAK KOSONG) ================= -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+            <div class="glass-card p-6 flex flex-col items-center justify-center text-center group">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-auraEmerald group-hover:bg-auraEmerald group-hover:text-obsidian transition-colors">
+                    <!-- SVG: Cube / Package -->
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7.5v9l-8 4.5-8-4.5v-9l8-4.5 8 4.5z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M12 12l8-4.5M12 12l-8-4.5M12 12v9"></path></svg>
+                </div>
+                <h4 class="text-white font-bold text-sm">Beragam Pilihan Unit</h4>
+                <p class="text-xs text-slate-500 mt-1">Container Baru & Bekas</p>
+            </div>
+            <div class="glass-card p-6 flex flex-col items-center justify-center text-center group">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-auraEmerald group-hover:bg-auraEmerald group-hover:text-obsidian transition-colors">
+                    <!-- SVG: Handshake / Users -->
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path></svg>
+                </div>
+                <h4 class="text-white font-bold text-sm">Memenuhi Permintaan</h4>
+                <p class="text-xs text-slate-500 mt-1">Siap Skala Proyek Besar</p>
+            </div>
+            <div class="glass-card p-6 flex flex-col items-center justify-center text-center group">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-auraEmerald group-hover:bg-auraEmerald group-hover:text-obsidian transition-colors">
+                    <!-- SVG: Sparkles / Experience -->
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path></svg>
+                </div>
+                <h4 class="text-white font-bold text-sm">Pengalaman 2004</h4>
+                <p class="text-xs text-slate-500 mt-1">Pabrik Spesialis Modifikasi</p>
+            </div>
+            <div class="glass-card p-6 flex flex-col items-center justify-center text-center group">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-auraEmerald group-hover:bg-auraEmerald group-hover:text-obsidian transition-colors">
+                    <!-- SVG: Shield Check / Certification -->
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+                </div>
+                <h4 class="text-white font-bold text-sm">Sertifikasi Internasional</h4>
+                <p class="text-xs text-slate-500 mt-1">ISO, CSC, COC, DNV</p>
+            </div>
+        </section>
+
+        <!-- ================= 4. SOLUSI KONTAINER (12 GRID PRODUK LENGKAP) ================= -->
+        <section class="mb-24 relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div class="text-center mb-12 pt-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Solusi Kontainer Berkualitas</h2>
+                <p class="text-slate-400 text-sm max-w-2xl mx-auto">Apakah Anda mencari kontainer yang andal untuk kebutuhan logistik, penyimpanan, atau modifikasi? Rafi Con hadir dengan berbagai pilihan siap pakai!</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gunakan blok kode produk yang sama persis seperti sebelumnya -->
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">General Purpose / Dry</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">High Cube Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Side Opening Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Open Top Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1506804886640-394468f070b4?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Flat Rack Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">DNV / Offshore</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1518536643242-7a06f36402fb?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Reefer Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1493134379766-3d231e843c08?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Insulated Container</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">ISO Tank</h4>
+                    </div>
+                </a>
+                <a href="produk/office-container.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1520699049698-acd2fce18738?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Modified (Office)</h4>
+                    </div>
+                </a>
+                <a href="modular/index.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Modular House</h4>
+                    </div>
+                </a>
+                <a href="produk/kontainer-standar.html" class="glass-card p-3 group block">
+                    <div class="bg-[#0a0f1c] rounded-xl overflow-hidden mb-4 h-36 flex items-center justify-center p-4 border border-white/5 group-hover:border-auraEmerald/30 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=400" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="px-2 pb-2 text-center">
+                        <h4 class="text-white font-bold text-sm group-hover:text-auraEmerald transition-colors">Dangerous Goods</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ================= 5. FUNGSI CONTAINER ================= -->
+        <section class="mb-24 relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            
+            <div class="pt-10 mb-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Fungsi & Modifikasi Container</h2>
+                <p class="text-slate-400 text-sm max-w-3xl mx-auto">Kontainer mempunyai banyak jenis dan fungsi krusial untuk bangunan komersial maupun logistik.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Blok fungsi yang sama persis dengan yang sebelumnya -->
+                <div class="glass-card p-8 flex flex-col justify-between group">
+                    <div>
+                        <h3 class="text-auraEmerald font-bold text-xl mb-4">Transportasi Kargo</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Selain menyediakan <strong class="text-white font-semibold">box container peti kemas baru</strong>, kami juga <strong class="text-white font-semibold">jual container 20 feet bekas dan 40 feet bekas</strong> untuk keperluan logistik pengiriman aman.</p>
+                    </div>
+                    <a href="produk/kontainer-standar.html" class="text-xs text-auraEmerald font-bold uppercase tracking-wider group-hover:text-white transition-colors">Cek Harga Dry Cargo →</a>
+                </div>
+                <div class="glass-card p-8 flex flex-col justify-between group">
+                    <div>
+                        <h3 class="text-auraEmerald font-bold text-xl mb-4">Gudang Penyimpanan</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Kontainer adalah <strong class="text-white font-semibold">solusi penyimpanan barang hemat biaya</strong>. Barang Anda di dalam <strong class="text-white font-semibold">storage container</strong> terjaga mutunya dari cuaca ekstrem.</p>
+                    </div>
+                    <a href="produk/kontainer-standar.html" class="text-xs text-auraEmerald font-bold uppercase tracking-wider group-hover:text-white transition-colors">Info Self Storage →</a>
+                </div>
+                <a href="produk/office-container.html" class="glass-card p-0 relative overflow-hidden flex flex-col justify-end min-h-[300px] group md:col-span-2 lg:col-span-1 border-white/10 hover:border-auraGold/40">
+                    <img src="https://images.unsplash.com/photo-1520699049698-acd2fce18738?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+                    <div class="relative z-10 p-8">
+                        <h3 class="text-auraGold font-bold text-xl mb-3">Kantor Kontainer (Office)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white font-semibold">Office container adalah solusinya</strong>. Sangat ekonomis untuk proyek, lengkap insulasi glasswool & AC.</p>
+                    </div>
+                </a>
+                <div class="glass-card p-8 flex flex-col justify-between group">
+                    <div>
+                        <h3 class="text-auraEmerald font-bold text-xl mb-4">Toko Penjualan</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Difungsikan sebagai <strong class="text-white font-semibold">container untuk toko dengan ukuran 20' & 40'</strong>. Desain industrial menarik pelanggan. <strong class="text-white font-semibold">Harga kontainer toko bekas</strong> menyesuaikan budget.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-8 flex flex-col justify-between group">
+                    <div>
+                        <h3 class="text-auraEmerald font-bold text-xl mb-4">Cafe / Restoran</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Kami merakit <strong class="text-white font-semibold">container café</strong> estetis untuk F&B. Mengenai <strong class="text-white font-semibold">harga container cafe bekas</strong> tentunya disesuaikan dengan anggaran Anda.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-8 flex flex-col justify-between group">
+                    <div>
+                        <h3 class="text-auraEmerald font-bold text-xl mb-4">Rumah / Asrama Pekerja</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Buat tempat tinggal untuk <strong class="text-white font-semibold">dijadikan mess karyawan atau pos security</strong>. <strong class="text-white font-semibold">Harga jual kontainer bekas untuk rumah</strong> tergolong sangat murah.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 6. INFO CONTAINER ================= -->
+        <section class="mb-16 relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div class="pt-10 mb-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Info Edukasi Container</h2>
+                <p class="text-slate-400 text-sm max-w-2xl mx-auto">Panduan teknis dan edukasi pengiriman ekspor impor logistik nasional.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Sama persis dengan sebelumnya -->
+                <a href="info/index.html" class="glass-card p-2 overflow-hidden group block border-white/5 hover:border-auraEmerald/30">
+                    <div class="h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-auraEmerald font-bold mb-3 block uppercase tracking-widest">Panduan Instalasi</span>
+                        <h4 class="text-white font-bold text-base mb-2 leading-snug line-clamp-2">How To Set Up Frames 2nd Floor Detachable</h4>
+                        <p class="text-slate-400 text-xs line-clamp-3">A modular house construction requires precise handling and installation...</p>
+                    </div>
+                </a>
+                <a href="info/index.html" class="glass-card p-2 overflow-hidden group block border-white/5 hover:border-auraEmerald/30">
+                    <div class="h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-auraEmerald font-bold mb-3 block uppercase tracking-widest">Pengetahuan Ekspor</span>
+                        <h4 class="text-white font-bold text-base mb-2 leading-snug line-clamp-2">10 Jenis Kontainer untuk Ekspor Impor Logistik</h4>
+                        <p class="text-slate-400 text-xs line-clamp-3">Berikut adalah 10 jenis kontainer yang umum digunakan dalam ekspor...</p>
+                    </div>
+                </a>
+                <a href="info/index.html" class="glass-card p-2 overflow-hidden group block border-white/5 hover:border-auraEmerald/30">
+                    <div class="h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-auraEmerald font-bold mb-3 block uppercase tracking-widest">Bisnis Praktis</span>
+                        <h4 class="text-white font-bold text-base mb-2 leading-snug line-clamp-2">7 Keandalan Pengiriman dengan Kontainer ISO</h4>
+                        <p class="text-slate-400 text-xs line-clamp-3">Dalam perdagangan global saat ini, keandalan pengiriman kargo menjadi...</p>
+                    </div>
+                </a>
+                <a href="info/index.html" class="glass-card p-2 overflow-hidden group block border-white/5 hover:border-auraEmerald/30">
+                    <div class="h-44 overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                    <div class="p-5">
+                        <span class="text-[10px] text-auraEmerald font-bold mb-3 block uppercase tracking-widest">Regulasi Logistik</span>
+                        <h4 class="text-white font-bold text-base mb-2 leading-snug line-clamp-2">6 Cara Ekspor Barang ke Luar Negeri Wajib Tahu</h4>
+                        <p class="text-slate-400 text-xs line-clamp-3">Ekspor barang menjadi salah satu kegiatan yang dapat memperluas pasar...</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= 7. CTA RAKSASA (FORM STYLE) ================= -->
+        <section class="glass-card p-10 md:p-16 text-center relative overflow-hidden mt-20 border-auraEmerald/20">
+            <div class="absolute inset-0 bg-gradient-to-t from-auraEmerald/5 to-transparent pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Butuh Kontainer untuk Keperluan Bisnis atau Proyek?</h2>
+                <p class="text-slate-300 text-base mb-10"><strong class="text-white">Kami Siap Membantu!</strong> Konsultasikan kebutuhan teknis kepada tim kami sekarang.</p>
+                <a href="https://wa.me/6281234567890" target="_blank" class="inline-block px-10 py-5 bg-auraEmerald text-obsidian font-extrabold rounded-full hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(16,185,129,0.3)]">
+                    Hubungi Konsultan Kami
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= 8. FOOTER ================= -->
+    <footer class="glass-card border-x-0 border-b-0 rounded-none rounded-t-[3rem] pt-16 pb-8 text-sm text-slate-400 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h4 class="text-white font-extrabold mb-6 text-xl tracking-wide">Rafi Con Smart Space</h4>
+                    <p class="leading-relaxed text-sm mb-4">Divisi VIP PT. Citra Jaya Container. Menyediakan solusi kontainer logistik, penyimpanan, dan modifikasi.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-extrabold mb-6 text-xl tracking-wide">Office & Workshop</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="text-auraEmerald mt-1">📍</span>
+                            <span>Jl. Simpangan No. 12 RT 04 RW 02 Desa Simpangan, Kec. Cikarang Utara<br/>Kabupaten Bekasi, Jawa Barat 17836</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-extrabold mb-6 text-xl tracking-wide">Contact Person</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3"><span class="text-auraEmerald">📞</span> +62 888 878 1999 (M. Hasna)</li>
+                        <li class="flex items-center gap-3"><span class="text-auraEmerald">💬</span> +62 812 1220 4602 (WhatsApp 24/7)</li>
+                        <li class="flex items-center gap-3"><span class="text-auraEmerald">✉️</span> marketing@raficonsmartspace.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-xs tracking-wider">
+                2026 © Rafi Con Smart Space (PT. Citra Jaya Container). Engineered for Absolute SEO Dominance.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPT VIDEO FACADE (ZERO BLOAT) ================= -->
+    <script>
+        function playHeroVideo() {
+            // Sembunyikan Thumbnail dan Tombol Play
+            document.getElementById('hero-thumbnail').style.opacity = '0';
+            document.getElementById('hero-overlay').style.opacity = '0';
+            
+            // Hasilkan Elemen Video dan Suntikkan ke HTML
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = `
+                <video autoplay controls class="w-full h-full object-cover">
+                    <!-- Ganti "video intro_2.mp4" dengan file video Master -->
+                    <source src="video intro_2.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+            `;
+            
+            // Tampilkan Container Video
+            videoContainer.style.opacity = '1';
+            videoContainer.style.pointerEvents = 'auto'; // Mengizinkan user mengklik control video
+            
+            // Matikan fungsi klik ganda pada kotak luar
+            document.getElementById('hero-video-wrapper').removeAttribute("onclick");
+        }
+    </script>
+</body>
+</html>
