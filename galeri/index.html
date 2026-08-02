@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Proyek & Modifikasi | Rafi Con Smart Space</title>
+    <meta name="description" content="Kumpulan portofolio proyek modifikasi kontainer, office container, dan modular house dari Rafi Con Smart Space.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] }, colors: { obsidian: '#030712', auraEmerald: '#10b981' } } } }
+    </script>
+    
+    <style>
+        body { background-color: #030712; background-image: radial-gradient(circle at top left, rgba(16, 185, 129, 0.05) 0%, transparent 50%); background-attachment: fixed; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(24px); border-radius: 1.5rem; transition: all 0.4s ease; }
+        .glass-card:hover { border-color: rgba(16, 185, 129, 0.3); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1); }
+        .glass-nav { background: rgba(3, 7, 18, 0.7); border-bottom: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="text-slate-400 font-sans antialiased min-h-screen flex flex-col">
+
+    <nav class="fixed w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+            <a href="../index.html" class="text-2xl font-black tracking-wider text-white">RAFI<span class="text-auraEmerald">CON</span></a>
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                <a href="../index.html" class="hover:text-white transition-colors">BERANDA</a>
+                <a href="../produk/index.html" class="hover:text-white transition-colors">PRODUK</a>
+                <a href="../modular/index.html" class="hover:text-white transition-colors">MODULAR</a>
+                <a href="index.html" class="text-auraEmerald font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-auraEmerald">GALERI</a>
+                <a href="../info/index.html" class="hover:text-white transition-colors">INFO</a>
+                <a href="../kontak/index.html" class="hover:text-white transition-colors">KONTAK</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-16 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="text-center mb-16 pt-8">
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">GALERI <span class="text-auraEmerald italic">PROYEK</span></h1>
+            <p class="text-slate-400 max-w-2xl mx-auto text-base">Dokumentasi portofolio fabrikasi dan pengiriman unit dari pabrik kami.</p>
+        </div>
+
+        <!-- MASONRY / GRID IMAGE -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1520699049698-acd2fce18738?q=80&w=600" alt="Modifikasi Office Container" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600" alt="High Cube Container Jakarta" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=600" alt="Jual Dry Container Bekas" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1498084393753-b411b2d26b34?q=80&w=600" alt="Modular House GRC Board" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1506804886640-394468f070b4?q=80&w=600" alt="Flat Rack Container Murah" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=600" alt="Pengiriman Open Top Container" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1518536643242-7a06f36402fb?q=80&w=600" alt="Refrigerated Container Cold Storage" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="glass-card p-2 group overflow-hidden"><img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=600" alt="Offshore DNV Container" class="w-full h-48 object-cover rounded-xl group-hover:scale-110 transition-transform duration-700"></div>
+        </div>
+    </main>
+
+    <footer class="glass-card border-x-0 border-b-0 rounded-none rounded-t-[3rem] py-10 mt-auto text-sm text-slate-400 text-center">
+        2026 © Rafi Con Smart Space.
+    </footer>
+</body>
+</html>
