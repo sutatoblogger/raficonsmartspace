@@ -144,7 +144,7 @@
         }
     </script>
     
-    <!-- CSS Custom: Aura Design System -->
+    <!-- CSS Custom: Aura Design System & Jarvis TITAN CSS -->
     <style>
         body { 
             background-color: #030712; 
@@ -155,7 +155,6 @@
             background-attachment: fixed;
         }
         
-        /* Glassmorphism ala aura.build */
         .glass-card { 
             background: rgba(15, 23, 42, 0.4); 
             border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -178,15 +177,12 @@
             -webkit-backdrop-filter: blur(24px);
         }
 
-        /* Hover Dropdown */
         .dropdown-group:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
         
-        /* Mobile Menu Toggle */
         #mobile-menu { transition: transform 0.3s ease-in-out; }
         .menu-open { transform: translateX(0) !important; }
         
-        /* Live Pulse untuk TikTok */
         @keyframes pulse-ring {
             0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 0, 80, 0.7); }
             70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(255, 0, 80, 0); }
@@ -195,7 +191,7 @@
         .live-pulse { animation: pulse-ring 2s infinite; }
 
         /* =======================================================
-           JARVIS TITAN PROTOCOL - ISOLATION CSS (ANTI-BOCOR)
+           JARVIS TITAN PROTOCOL - ISOLATION CSS & DUAL CTA
            ======================================================= */
         @media (max-width: 768px) { 
             body { padding-bottom: 120px !important; } 
@@ -209,18 +205,31 @@
             70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
+        
         .jarvis-trap-container {
             position: fixed; bottom: 25px; right: 25px; z-index: 9999;
-            display: flex; flex-direction: column; gap: 15px; align-items: flex-end;
+            display: flex; gap: 15px; align-items: center;
         }
+        
+        /* Tombol WA Melayang */
+        .jarvis-cta-wa {
+            width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.3s ease; text-decoration: none;
+        }
+        .jarvis-cta-wa:hover { transform: scale(1.1); }
+        .jarvis-cta-wa svg { fill: #fff; width: 35px; height: 35px; }
+
+        /* Tombol AI (Dengan Logo Kustom) */
         .jarvis-cta-ai {
-            width: 60px; height: 60px; background: #030712; border: 2px solid #10b981;
+            width: 60px; height: 60px; background: #ffffff; border: 2px solid #10b981;
             border-radius: 50%; cursor: pointer; animation: jarvis-pulse 2s infinite;
             display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; overflow: hidden;
         }
         .jarvis-cta-ai:hover { transform: scale(1.1); }
-        .jarvis-cta-ai img { width: 55%; height: 55%; object-fit: contain; filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(110deg); }
+        .jarvis-cta-ai img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); }
 
         .jarvis-voice-btn {
             flex-shrink: 0; background: transparent; border: 1px solid #10b981; border-radius: 50%;
@@ -255,13 +264,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo -->
                 <a href="/" class="flex items-center gap-3 group z-50">
                     <span class="text-2xl font-black tracking-wider text-white group-hover:text-auraEmerald transition-colors drop-shadow-lg">RAFI<span class="text-auraEmerald group-hover:text-white transition-colors">CON</span></span>
                     <span class="hidden sm:inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-auraEmerald uppercase tracking-widest backdrop-blur-md">Smart Space</span>
                 </a>
                 
-                <!-- Navigasi Desktop -->
                 <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-300">
                     <a href="/" class="text-auraEmerald font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-auraEmerald after:shadow-[0_0_10px_#10b981]">BERANDA</a>
                     
@@ -282,7 +289,6 @@
                     <a href="info/index.html" class="hover:text-white transition-colors">INFO</a>
                 </div>
 
-                <!-- CTA & Mobile Toggle -->
                 <div class="flex items-center gap-4 z-50">
                     <a href="https://wa.me/6281212204602" target="_blank" class="hidden md:flex relative items-center gap-2 px-6 py-2.5 rounded-full font-extrabold text-xs text-obsidian bg-auraEmerald overflow-hidden group">
                         <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
@@ -296,7 +302,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-[#030712]/95 backdrop-blur-xl z-40 transform translate-x-full flex flex-col pt-24 px-6 pb-8 border-l border-white/10 lg:hidden">
             <div class="flex flex-col gap-6 text-lg font-bold text-slate-200">
                 <a href="/" class="text-auraEmerald pb-2 border-b border-white/10">Beranda</a>
@@ -922,12 +927,18 @@
         </div>
     </footer>
 
-    <!-- ================= CHATBOT WIDGET UI ================= -->
+    <!-- ================= DUAL-TRAP CTA WIDGET (WA + AI) ================= -->
     <div class="jarvis-trap-container">
+        <!-- 1. Tombol WA -->
+        <a href="https://wa.me/6281234567890?text=Halo%20Rafi%20Con,%20saya%20tertarik%20dengan%20layanan%20jual%20sewa%20serta%20modifikasi%20container.%20Bisa%20bantu%20hitungkan%20RAB-nya?" target="_blank" rel="noopener noreferrer" class="jarvis-cta-wa" title="Hubungi via WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.031 21.5c-1.304 0-2.57-.34-3.69-1l-.26-.16-2.74.72.73-2.67-.17-.28c-.68-1.12-1.04-2.42-1.04-3.75 0-3.9 3.17-7.07 7.07-7.07 3.9 0 7.07 3.17 7.07 7.07s-3.17 7.07-7.07 7.07zm0-16.14c-4.99 0-9.05 4.06-9.05 9.05 0 1.6.42 3.16 1.22 4.54l-1.3 4.74 4.85-1.27c1.33.73 2.82 1.12 4.38 1.12 4.99 0 9.05-4.06 9.05-9.05 0-4.99-4.06-9.05-9.05-9.05zm4.97 12.35c-.27-.81-1.61-1.36-1.61-1.36-.23-.12-.49-.07-.65.1l-.87 1.07c-.17.21-.46.26-.71.13-1.47-.78-2.64-1.95-3.41-3.42-.12-.24-.07-.53.14-.7l1.08-.88c.17-.16.22-.42.1-.65 0 0-.55-1.34-1.36-1.61-.31-.1-.65.01-.81.28l-.66 1.1c-.24.4-.3 1.03-.02 1.57.86 1.7 2.1 3.2 3.65 4.3 1.25.88 2.62 1.48 3.94 1.54.54.03 1.16-.03 1.56-.27l1.1-.67c.27-.16.38-.5.28-.8z"/></svg>
+        </a>
+        <!-- 2. Tombol AI -->
         <div class="jarvis-cta-ai" id="jarvis-ai-button" title="Tanya AI Asisten">
-            <svg viewBox="0 0 24 24" fill="#10b981" width="30" height="30"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a3 3 0 0 1 3 3v2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2v2a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-2H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h2V10a3 3 0 0 1 3-3h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM9 10a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1H9zm2 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+            <img src="https://dongkrakusaha.com/gambarbebas/1142920260706-035633_logo%20ai%20tanya%20ai.webp" alt="Tanya AI Rafi Con" loading="lazy">
         </div>
     </div>
+    
     <div id="jarvis-chat-box" class="jarvis-chat-box">
         <div class="jarvis-chat-header">
             <span style="display: flex; align-items: center; gap: 8px;">Asisten Konsultan AI</span>
