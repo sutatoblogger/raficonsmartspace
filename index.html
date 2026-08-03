@@ -193,6 +193,59 @@
             100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 0, 80, 0); }
         }
         .live-pulse { animation: pulse-ring 2s infinite; }
+
+        /* =======================================================
+           JARVIS TITAN PROTOCOL - ISOLATION CSS (ANTI-BOCOR)
+           ======================================================= */
+        @media (max-width: 768px) { 
+            body { padding-bottom: 120px !important; } 
+        }
+
+        .jarvis-agency-link { color: #334155; text-decoration: none; transition: all 0.3s ease; }
+        .jarvis-agency-link:hover { color: #10b981; font-weight: bold; }
+
+        @keyframes jarvis-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .jarvis-trap-container {
+            position: fixed; bottom: 25px; right: 25px; z-index: 9999;
+            display: flex; flex-direction: column; gap: 15px; align-items: flex-end;
+        }
+        .jarvis-cta-ai {
+            width: 60px; height: 60px; background: #030712; border: 2px solid #10b981;
+            border-radius: 50%; cursor: pointer; animation: jarvis-pulse 2s infinite;
+            display: flex; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+        .jarvis-cta-ai:hover { transform: scale(1.1); }
+        .jarvis-cta-ai img { width: 55%; height: 55%; object-fit: contain; filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(110deg); }
+
+        .jarvis-voice-btn {
+            flex-shrink: 0; background: transparent; border: 1px solid #10b981; border-radius: 50%;
+            width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.3s ease; margin-top: 2px;
+        }
+        .jarvis-voice-btn svg { fill: #10b981; width: 22px; height: 22px; transition: 0.3s; }
+        .jarvis-voice-btn.jarvis-playing { background: #10b981; animation: jarvis-pulse 1.5s infinite; }
+        .jarvis-voice-btn.jarvis-playing svg { fill: #030712; }
+
+        .jarvis-chat-box {
+            display: none; position: fixed; bottom: 100px; right: 25px; width: 320px;
+            background: rgba(3, 7, 18, 0.96); backdrop-filter: blur(16px);
+            border: 1px solid #10b981; border-radius: 16px; z-index: 9998;
+            flex-direction: column; box-shadow: 0 12px 35px rgba(0,0,0,0.6); overflow: hidden;
+        }
+        .jarvis-chat-header { background: #10b981; color: #030712; padding: 12px 15px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
+        .jarvis-chat-history { height: 280px; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; scroll-behavior: smooth; color: #cbd5e1; }
+        .jarvis-chat-input-area { padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 8px; background: rgba(3, 7, 18, 0.8); }
+        .jarvis-input { flex-grow: 1; padding: 10px 14px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3); background: rgba(0,0,0,0.5); color: white; font-size: 0.85rem; outline: none; }
+        .jarvis-input:focus { border-color: #10b981; }
+        .jarvis-send { background: #10b981; color: #030712; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; font-weight: bold; font-size: 0.75rem; }
+        .jarvis-msg-ai { background: rgba(255,255,255,0.05); padding: 10px 12px; border-radius: 8px 8px 8px 0; align-self: flex-start; max-width: 85%; border-left: 2px solid #10b981; }
+        .jarvis-msg-user { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; padding: 10px 12px; border-radius: 8px 8px 0 8px; align-self: flex-end; max-width: 85%; font-weight: 600; }
+        .jarvis-typing { font-style: italic; opacity: 0.6; }
     </style>
 </head>
 <body class="text-slate-400 font-sans antialiased min-h-screen flex flex-col selection:bg-auraEmerald selection:text-black">
@@ -214,7 +267,6 @@
                     
                     <div class="relative dropdown-group py-6">
                         <a href="produk/index.html" class="hover:text-white flex items-center gap-1 transition-colors cursor-pointer">PRODUK <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
-                        <!-- Megamenu Dropdown -->
                         <div class="dropdown-menu absolute top-[75px] -left-4 w-64 glass-card p-2 z-50 rounded-2xl border-auraEmerald/20">
                             <a href="produk/kontainer-standar.html" class="block px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-auraEmerald transition-colors">General Purpose / Dry</a>
                             <a href="produk/office-container.html" class="block px-4 py-2.5 rounded-xl hover:bg-white/10 hover:text-auraEmerald transition-colors">Office Container</a>
@@ -232,13 +284,11 @@
 
                 <!-- CTA & Mobile Toggle -->
                 <div class="flex items-center gap-4 z-50">
-                    <!-- Button Aura Style -->
                     <a href="https://wa.me/6281212204602" target="_blank" class="hidden md:flex relative items-center gap-2 px-6 py-2.5 rounded-full font-extrabold text-xs text-obsidian bg-auraEmerald overflow-hidden group">
                         <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                         <span class="relative z-10 flex items-center gap-2">Hubungi Sales <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
                     </a>
                     
-                    <!-- Hamburger Menu Button -->
                     <button id="menu-btn" class="lg:hidden p-2 text-white hover:text-auraEmerald focus:outline-none bg-white/5 rounded-lg border border-white/10">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
@@ -246,7 +296,7 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay (Glassmorphism Drawer) -->
+        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-[#030712]/95 backdrop-blur-xl z-40 transform translate-x-full flex flex-col pt-24 px-6 pb-8 border-l border-white/10 lg:hidden">
             <div class="flex flex-col gap-6 text-lg font-bold text-slate-200">
                 <a href="/" class="text-auraEmerald pb-2 border-b border-white/10">Beranda</a>
@@ -263,21 +313,17 @@
     <!-- ================= KONTEN UTAMA ================= -->
     <main class="pt-32 pb-16 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-        <!-- ================= 4. HERO SECTION (AURA GLOW) ================= -->
+        <!-- ================= 4. HERO SECTION ================= -->
         <section class="mb-24 pt-8 lg:pt-16 relative bg-cover bg-center bg-no-repeat rounded-3xl border border-white/10" style="background-image: linear-gradient(to right, rgba(3,7,18,0.95), rgba(3,7,18,0.7)), url('assets/img/pabrik-modifikasi-container-terbesar-jabodetabek.webp');">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- KIRI: AURA VIDEO CARD VERTICAL -->
                 <div class="lg:col-span-4 order-2 lg:order-1 flex justify-center lg:justify-start relative">
-                    <!-- Glow Behind Card -->
                     <div class="absolute inset-0 bg-auraEmerald/20 blur-[100px] rounded-full pointer-events-none scale-75"></div>
                     
                     <div id="hero-video-wrapper" class="relative w-full max-w-[300px] aspect-[9/16] rounded-[2rem] overflow-hidden border border-white/20 shadow-[0_0_50px_rgba(16,185,129,0.2)] bg-obsidian cursor-pointer group animate-border-glow transform-gpu" style="transform: translateZ(0);" onclick="playHeroVideo()">
-                        
                         <img id="hero-thumbnail" src="assets/img/jual-sewa-container-bekas-cikarang.jpg" fetchpriority="high" decoding="sync" alt="Pabrik Container Jabodetabek" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                         
                         <div id="hero-overlay" class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end items-center pb-10 transition-opacity duration-300">
-                            <!-- Tombol Play Pulse -->
                             <div class="w-16 h-16 rounded-full bg-auraEmerald/90 text-obsidian flex items-center justify-center pl-1 mb-4 shadow-[0_0_30px_rgba(16,185,129,0.5)] transform group-hover:scale-110 transition-transform">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             </div>
@@ -288,7 +334,6 @@
                     </div>
                 </div>
 
-                <!-- KANAN: TYPOGRAPHY MEWAH -->
                 <div class="lg:col-span-8 order-1 lg:order-2 text-center lg:text-left relative z-10">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-slate-300 mb-8 backdrop-blur-md shadow-lg">
                         <span class="w-2 h-2 rounded-full bg-auraEmerald animate-pulse"></span> Jaringan Pengiriman Seluruh Pelabuhan Indonesia
@@ -299,7 +344,6 @@
                         <span class="font-light italic text-slate-400">BARU & BEKAS</span><br/>
                     </h1>
                     
-                    <!-- Aura Glow Highlight Badge -->
                     <div class="inline-block relative mb-10">
                         <div class="absolute inset-0 bg-auraEmerald blur-lg opacity-50"></div>
                         <div class="relative z-10 px-6 py-2 bg-gradient-to-r from-auraEmerald to-emerald-400 text-obsidian text-2xl md:text-4xl font-extrabold rounded-lg transform -skew-x-6 border border-white/30">
@@ -312,11 +356,9 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
-                        <!-- Button Primary -->
                         <a href="produk/index.html" class="w-full sm:w-auto px-8 py-4 bg-auraEmerald text-obsidian font-extrabold rounded-xl hover:-translate-y-1 hover:shadow-[0_15px_30px_-10px_rgba(16,185,129,0.5)] transition-all text-center tracking-wide flex justify-center items-center gap-2">
                             Eksplorasi Katalog <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
-                        <!-- Button Secondary Glass -->
                         <a href="https://wa.me/6281212204602" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 hover:-translate-y-1 transition-all text-center backdrop-blur-md">
                             Minta Penawaran RAB
                         </a>
@@ -326,9 +368,8 @@
             </div>
         </section>
 
-        <!-- ================= 5. BENTO GRID: TIKTOK LIVE CARD PROFESIONAL ================= -->
+        <!-- ================= 5. BENTO GRID ================= -->
         <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <!-- Tentang Kami Card -->
             <div class="md:col-span-2 glass-card p-8 lg:p-10 relative overflow-hidden group">
                 <div class="absolute -right-32 -bottom-32 w-64 h-64 bg-auraEmerald/10 blur-[80px] rounded-full pointer-events-none transition-all group-hover:bg-auraEmerald/20"></div>
                 <h2 class="text-3xl font-extrabold text-white mb-6 relative z-10">Rafi Con Smart Space</h2>
@@ -337,13 +378,10 @@
                 </p>
             </div>
             
-            <!-- Aura-Style TikTok Live Card -->
             <div class="md:col-span-1 bg-gradient-to-b from-[#111827] to-[#030712] rounded-3xl p-1 relative overflow-hidden group border border-white/5 hover:border-tiktokRed/40 transition-colors shadow-xl">
-                <!-- Glowing effect frame -->
                 <div class="absolute inset-0 bg-tiktokRed/5 blur-xl group-hover:bg-tiktokRed/10 transition-colors"></div>
                 <div class="relative h-full bg-[#0b0f19] rounded-[1.4rem] p-8 flex flex-col justify-center items-start z-10 border border-white/5">
                     
-                    <!-- Live Badge Premium -->
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-tiktokRed/30 bg-tiktokRed/10 mb-6">
                         <span class="w-2 h-2 rounded-full bg-tiktokRed live-pulse"></span>
                         <span class="text-[10px] font-extrabold text-tiktokRed tracking-widest uppercase">Live Studio</span>
@@ -352,7 +390,6 @@
                     <h3 class="text-2xl font-bold text-white mb-3">TikTok Live Studio</h3>
                     <p class="text-sm text-slate-400 mb-8 leading-relaxed">Tonton langsung perakitan kontainer kami secara real-time dari pabrik. Transparansi tanpa batas.</p>
                     
-                    <!-- Button Gradient Aura -->
                     <a href="https://wa.me/6281212204602" target="_blank" class="w-full relative group/btn overflow-hidden rounded-xl">
                         <div class="absolute inset-0 bg-gradient-to-r from-tiktokRed to-rose-600 opacity-90 group-hover/btn:opacity-100 transition-opacity"></div>
                         <div class="relative px-6 py-4 flex justify-between items-center text-white font-bold text-sm">
@@ -363,7 +400,8 @@
                 </div>
             </div>
         </section>
-		<!-- ================= 5.5 BADGES SVG ICONS (4 PILAR KEPERCAYAAN) ================= -->
+
+		<!-- ================= 5.5 BADGES ================= -->
         <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
             <div class="glass-card p-6 flex flex-col items-center justify-center text-center group">
                 <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-auraEmerald group-hover:bg-auraEmerald group-hover:text-obsidian transition-colors">
@@ -395,7 +433,7 @@
             </div>
         </section>
         
-        <!-- ================= 6. SOLUSI KONTAINER (12 GRID PRODUK BESAR & MEWAH) ================= -->
+        <!-- ================= 6. SOLUSI KONTAINER ================= -->
         <section class="mb-24 relative">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             <div class="text-center mb-16 pt-10">
@@ -403,9 +441,7 @@
                 <p class="text-slate-400 text-base max-w-2xl mx-auto leading-relaxed">Apakah Anda mencari kontainer yang andal untuk kebutuhan logistik, penyimpanan, atau modifikasi? Rafi Con hadir dengan berbagai pilihan siap pakai!</p>
             </div>
             
-            <!-- Grid Diperbarui: 1 Kolom di HP (Sangat Besar), 2 di Tablet, 4 di Desktop -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
                 <!-- Card 1 -->
                 <a href="produk/kontainer-standar.html" class="glass-card group flex flex-col relative overflow-hidden border border-white/5 hover:border-auraEmerald/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] bg-[#0a0f1c]/50 p-0">
                     <div class="relative w-full aspect-video sm:aspect-[4/3] overflow-hidden">
@@ -552,7 +588,8 @@
                 
             </div>
         </section>
-        <!-- ================= 6.5 FUNGSI CONTAINER (RESTORED) ================= -->
+
+        <!-- ================= 6.5 FUNGSI CONTAINER ================= -->
         <section class="mb-24 relative">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             
@@ -605,7 +642,7 @@
             </div>
         </section>
 
-        <!-- ================= 6.6 INFO EDUKASI CONTAINER (OPTIMIZED WEBP) ================= -->
+        <!-- ================= 6.6 INFO EDUKASI CONTAINER ================= -->
         <section class="mb-16 relative">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-1 px-8 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             <div class="pt-10 mb-12 text-center">
@@ -657,7 +694,7 @@
             </div>
         </section>
 
-        <!-- ================= 6.7 CTA RAKSASA (RESTORED) ================= -->
+        <!-- ================= 6.7 CTA RAKSASA ================= -->
         <section class="glass-card p-10 md:p-16 text-center relative overflow-hidden mt-10 mb-20 border-auraEmerald/20">
             <div class="absolute inset-0 bg-gradient-to-t from-auraEmerald/5 to-transparent pointer-events-none"></div>
             <div class="relative z-10 max-w-3xl mx-auto">
@@ -669,12 +706,11 @@
             </div>
         </section>
 
-        <!-- ================= 7. AURA FORM (CALL TO ACTION MEWAH) ================= -->
+        <!-- ================= 7. AURA FORM (WEB3FORMS INTEGRATION) ================= -->
         <section class="glass-card border-x-0 border-b-0 rounded-none rounded-t-[3rem] p-8 md:p-16 relative overflow-hidden mt-20 border-auraEmerald/20 bg-gradient-to-b from-auraEmerald/5 to-[#030712]">
             <div class="absolute right-0 top-0 w-96 h-96 bg-auraCyan/10 blur-[120px] pointer-events-none"></div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-                <!-- Teks Persuasi -->
                 <div>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Mulai Proyek Anda Bersama Ahlinya.</h2>
                     <p class="text-slate-300 text-lg mb-8 leading-relaxed">Dari pengadaan kargo standar hingga arsitektur modular kustom yang rumit. Kirimkan rincian kebutuhan Anda, dan tim *engineer* kami akan menyusun <strong class="text-white">RAB (Rencana Anggaran Biaya)</strong> dalam waktu kurang dari 24 jam.</p>
@@ -689,21 +725,25 @@
                     </div>
                 </div>
 
-                <!-- Form Glassmorphism yang sudah disuntik ID -->
                 <div class="bg-[#0b0f19]/80 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl relative">
+                    <!-- FORM INJECTION MASTER SUTATO -->
                     <form id="waForm" class="space-y-5 relative z-10">
+                        <input type="hidden" name="access_key" value="bea8e485-773b-40a3-88f1-78a1fe496511">
+                        <input type="hidden" name="subject" value="PROJECT: Rafi Con | Container Jabodetabek">
+                        <input type="hidden" name="source" value="Form Landing Page Rafi Con V10">
+
                         <div>
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Nama Lengkap</label>
-                            <input id="waNama" type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all" placeholder="John Doe">
+                            <input name="name" id="waNama" type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all" placeholder="John Doe">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Nomor WhatsApp</label>
-                                <input id="waPhone" type="tel" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all" placeholder="0812...">
+                                <input name="whatsapp" id="waPhone" type="tel" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all" placeholder="0812...">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Jenis Kebutuhan</label>
-                                <select id="waLayanan" class="w-full bg-[#0b0f19] border border-white/10 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all appearance-none">
+                                <select name="layanan" id="waLayanan" class="w-full bg-[#0b0f19] border border-white/10 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all appearance-none">
                                     <option value="Beli Container Bekas/Baru">Beli Container Bekas/Baru</option>
                                     <option value="Modifikasi Office / Cafe">Modifikasi Office / Cafe</option>
                                     <option value="Sewa Bulanan">Sewa Bulanan</option>
@@ -712,51 +752,83 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Pesan Singkat</label>
-                            <textarea id="waPesan" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all resize-none" placeholder="Jelaskan ukuran dan lokasi pengiriman..."></textarea>
+                            <textarea name="message" id="waPesan" rows="3" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-auraEmerald focus:ring-1 focus:ring-auraEmerald transition-all resize-none" placeholder="Jelaskan ukuran dan lokasi pengiriman..."></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 bg-auraEmerald text-obsidian font-black rounded-xl hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.3)] transition-all">Kirim Permintaan Penawaran →</button>
+                        <button type="submit" id="btnSubmitForm" class="w-full py-4 bg-auraEmerald text-obsidian font-black rounded-xl hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.3)] transition-all">Kirim Permintaan Penawaran →</button>
+                        <p id="formStatusMsg" style="margin-top: 1rem; font-size: 0.85rem; color: #10b981; display: none; text-align: center; font-weight: 600;">✅ Data berhasil terkirim. Tim logistik kami akan merespons via WA.</p>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- ================= 8. FAQ VISUAL (SINKRONISASI JSON-LD) ================= -->
+        <!-- ================= 8. FAQ VISUAL (VOICE AI INJECTION) ================= -->
         <section class="py-20 border-t border-white/5">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-extrabold text-white mb-4">Pertanyaan yang Sering Diajukan</h2>
-                    <p class="text-slate-400">Informasi cepat seputar harga, pengiriman, dan layanan fabrikasi Rafi Con.</p>
+                    <p class="text-slate-400">Informasi cepat seputar harga, pengiriman, dan layanan fabrikasi Rafi Con. (Tekan tombol hijau untuk mendengarkan jawaban).</p>
                 </div>
                 
                 <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30">
-                        <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                            <span class="text-auraEmerald">Q:</span> Berapa harga container 20 feet dan 40 feet bekas di Jabodetabek?
-                        </h3>
-                        <p class="text-sm text-slate-400 leading-relaxed ml-7">Harga container bekas di Rafi Con sangat kompetitif dan bervariasi tergantung kondisi fisik (Cargo Worthy atau Wind and Water Tight). Kami menjamin harga terbaik di Jabodetabek dengan kualitas baja Corten asli yang tahan cuaca ekstrem.</p>
+                    <!-- FAQ 1 -->
+                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30 flex gap-4 items-start">
+                        <button class="jarvis-voice-btn" data-text="Harga container bekas di Rafi Con sangat kompetitif. Kami menjamin harga terbaik di Jabodetabek dengan kualitas baja Corten asli. Hubungi WhatsApp kami untuk pricelist terbaru.">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Berapa harga container 20 feet & 40 feet bekas?</h3>
+                            <p class="text-sm text-slate-400">Harga kompetitif dengan kualitas baja Corten asli. <a href="https://wa.me/6281212204602" target="_blank" class="text-auraEmerald hover:underline font-bold">Tanya Harga via WA</a></p>
+                        </div>
                     </div>
                     
-                    <!-- FAQ Item 2 -->
-                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30">
-                        <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                            <span class="text-auraEmerald">Q:</span> Apakah Rafi Con melayani custom modifikasi office container?
-                        </h3>
-                        <p class="text-sm text-slate-400 leading-relaxed ml-7">Tentu. Rafi Con adalah pabrik spesialis fabrikasi dan modifikasi peti kemas. Kami merakit office container, booth bisnis, hingga rumah modular lengkap dengan insulasi glasswool, lantai vinyl, AC, dan instalasi listrik yang siap pakai.</p>
+                    <!-- FAQ 2 -->
+                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30 flex gap-4 items-start">
+                        <button class="jarvis-voice-btn" data-text="Tentu. Kami adalah spesialis fabrikasi. Kami merakit office container lengkap dengan insulasi, lantai vinyl, AC, dan instalasi listrik siap pakai. Konsultasikan denah Anda di WhatsApp.">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Apakah melayani modifikasi office container kustom?</h3>
+                            <p class="text-sm text-slate-400">Siap rakit lengkap dengan AC, insulasi, dan kelistrikan. <a href="https://wa.me/6281212204602" target="_blank" class="text-auraEmerald hover:underline font-bold">Konsultasi Layout WA</a></p>
+                        </div>
                     </div>
                     
-                    <!-- FAQ Item 3 -->
-                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30">
-                        <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                            <span class="text-auraEmerald">Q:</span> Apakah bisa melakukan pengiriman ke luar Pulau Jawa?
-                        </h3>
-                        <p class="text-sm text-slate-400 leading-relaxed ml-7">Sangat bisa. Kami melayani pengiriman unit dry kargo, reefer, maupun modifikasi ke seluruh jaringan pelabuhan di Indonesia. Tim logistik kami memastikan unit tiba dengan aman di lokasi proyek Anda.</p>
+                    <!-- FAQ 3 -->
+                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30 flex gap-4 items-start">
+                        <button class="jarvis-voice-btn" data-text="Sangat bisa. Kami melayani pengiriman logistik menggunakan truk towing atau trailer ke seluruh jaringan pelabuhan di Indonesia dengan aman.">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Apakah bisa kirim ke luar area Jabodetabek?</h3>
+                            <p class="text-sm text-slate-400">Pengiriman mencakup seluruh wilayah dan pelabuhan Indonesia. <a href="https://wa.me/6281212204602" target="_blank" class="text-auraEmerald hover:underline font-bold">Cek Ongkir di WA</a></p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30 flex gap-4 items-start">
+                        <button class="jarvis-voice-btn" data-text="Kualitas material kami tersertifikasi ISO dan DNV. Kami menjamin unit bebas bocor dengan kondisi Wind and Water Tight untuk keamanan kargo Anda.">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Bagaimana jaminan kondisi fisik peti kemas?</h3>
+                            <p class="text-sm text-slate-400">Garansi standar ISO, Cargo Worthy, dan Wind & Water Tight. <a href="https://wa.me/6281212204602" target="_blank" class="text-auraEmerald hover:underline font-bold">Minta Video Unit WA</a></p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="glass-card p-6 border-white/5 hover:border-auraEmerald/30 flex gap-4 items-start">
+                        <button class="jarvis-voice-btn" data-text="Proses pemesanan sangat cepat. Setelah Anda menyetujui RAB dan layout, tim kami langsung memproses fabrikasi tanpa jeda waktu lama. Hubungi WA kami sekarang.">
+                            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-2">Berapa lama proses fabrikasi modifikasi container?</h3>
+                            <p class="text-sm text-slate-400">Eksekusi cepat sesuai timeline kesepakatan kontrak RAB. <a href="https://wa.me/6281212204602" target="_blank" class="text-auraEmerald hover:underline font-bold">Jadwalkan Proyek WA</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- ================= 8.5. CLOSED-LOOP SILO (JEJARING ARTIKEL INFANTRI - DUMMY TEMPLATE) ================= -->
+        <!-- ================= 8.5. CLOSED-LOOP SILO ================= -->
         <section class="py-10 border-t border-white/5 bg-[#030712]/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -765,35 +837,27 @@
                         Jejaring Logistik:
                     </h4>
                     <div class="flex flex-wrap gap-3">
-                        <!-- NANTI GANTI href="#" DENGAN URL DONGKRAKUSAHA KETIKA SUDAH LIVE -->
                         <a href="#dummy1" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Sewa Office Container Jakarta</a>
-                        
                         <a href="#dummy2" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Container Bekas Murah Cikarang</a>
-                        
                         <a href="#dummy3" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Modifikasi Container Cafe Bekasi</a>
-                        
                         <a href="#dummy4" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Harga Peti Kemas 20 Feet Depok</a>
-                        
                         <a href="#dummy5" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Jual Container Portacamp Bogor</a>
-                        
                         <a href="#dummy6" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Gudang Container Storage Tangerang</a>
-                        
                         <a href="#dummy7" rel="dofollow" class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] font-semibold text-slate-400 hover:text-obsidian hover:bg-auraEmerald hover:border-auraEmerald transition-all">Pabrik Modifikasi Modular Custom</a>
                     </div>
                 </div>
             </div>
         </section>
 
-    </main> <!-- Penutup <main> yang benar, hanya sekali -->
+    </main>
 
-    <!-- ================= 9. FOOTER AURA (DARK, MEWAH, MULTI-COLUMN) ================= -->
+    <!-- ================= 9. FOOTER AURA ================= -->
     <footer class="bg-[#030712] border-t border-white/10 pt-20 pb-10 text-sm text-slate-400 relative overflow-hidden">
         <div class="absolute left-1/2 bottom-0 -translate-x-1/2 w-[800px] h-[400px] bg-auraEmerald/5 blur-[120px] pointer-events-none rounded-full"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 
-                <!-- Col 1: Brand -->
                 <div class="lg:col-span-1">
                     <a href="/" class="flex items-center gap-2 mb-6">
                         <span class="text-2xl font-black tracking-wider text-white">RAFI<span class="text-auraEmerald">CON</span></span>
@@ -806,7 +870,6 @@
                     </div>
                 </div>
                 
-                <!-- Col 2: Navigasi Cepat -->
                 <div>
                     <h4 class="text-white font-bold mb-6 tracking-wide uppercase text-xs">Jelajah</h4>
                     <ul class="space-y-3">
@@ -817,7 +880,6 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Edukasi -->
                 <div>
                     <h4 class="text-white font-bold mb-6 tracking-wide uppercase text-xs">Info Publik</h4>
                     <ul class="space-y-3">
@@ -828,7 +890,6 @@
                     </ul>
                 </div>
                 
-                <!-- Col 4: Kontak -->
                 <div>
                     <h4 class="text-white font-bold mb-6 tracking-wide uppercase text-xs">Office & Workshop</h4>
                     <ul class="space-y-4">
@@ -848,14 +909,40 @@
                 </div>
             </div>
             
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs tracking-wider">
-                <p>2026 © PT. Citra Jaya Container. All rights reserved.</p>
-                <p class="flex items-center gap-2">Engineered by <span class="text-auraEmerald font-bold">TITAN Protocol</span></p>
+            <!-- AGENCY CREDIT & SILO INJECTION MASTER SUTATO -->
+            <div class="jarvis-footer-injection w-full pt-8 border-t border-white/10">
+                <p class="text-xs text-slate-500 text-center leading-relaxed mb-4 max-w-4xl mx-auto">
+                    Rafi Con Smart Space berkomitmen memberikan inovasi fabrikasi terbaik. Untuk informasi lebih lanjut mengenai solusi modular, silakan eksplorasi halaman utama <a href="https://raficonsmartspace.com/" rel="dofollow" class="text-auraEmerald hover:underline font-semibold">Modifikasi Container Jabodetabek</a> kami.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs tracking-wider border-t border-white/10 pt-6">
+                    <p class="text-[#475569]">© 2026 Rafi Con Smart Space. All Rights Reserved.</p>
+                    <p class="text-[#334155]">SEO & Web Development by <a href="https://ciledugpromo.biz.id/" target="_blank" rel="nofollow noopener noreferrer" class="jarvis-agency-link">CiledugPromo</a></p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- ================= 10. KUMPULAN JAVASCRIPT (SATU KALI SAJA) ================= -->
+    <!-- ================= CHATBOT WIDGET UI ================= -->
+    <div class="jarvis-trap-container">
+        <div class="jarvis-cta-ai" id="jarvis-ai-button" title="Tanya AI Asisten">
+            <svg viewBox="0 0 24 24" fill="#10b981" width="30" height="30"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a3 3 0 0 1 3 3v2h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2v2a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-2H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h2V10a3 3 0 0 1 3-3h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM9 10a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1H9zm2 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+        </div>
+    </div>
+    <div id="jarvis-chat-box" class="jarvis-chat-box">
+        <div class="jarvis-chat-header">
+            <span style="display: flex; align-items: center; gap: 8px;">Asisten Konsultan AI</span>
+            <span id="jarvis-close-ai" style="cursor: pointer; font-size: 1.4rem; line-height: 1;">&times;</span>
+        </div>
+        <div id="jarvis-chat-history" class="jarvis-chat-history">
+            <div class="jarvis-msg-ai">Halo! Saya asisten virtual Rafi Con. Ada pertanyaan tentang harga, spesifikasi container, atau proses pengiriman? Silakan ketik pertanyaan Anda.</div>
+        </div>
+        <div class="jarvis-chat-input-area">
+            <input type="text" id="jarvis-chat-input" class="jarvis-input" placeholder="Ketik pesan di sini...">
+            <button id="jarvis-send-chat" class="jarvis-send">GO</button>
+        </div>
+    </div>
+
+    <!-- ================= 10. KUMPULAN JAVASCRIPT MASTER (VANILLA CORE) ================= -->
     <script>
         // A. Script Menu Mobile Toggle
         const btn = document.getElementById('menu-btn');
@@ -877,23 +964,114 @@
             document.getElementById('hero-video-wrapper').removeAttribute("onclick");
         }
 
-        // C. Script WhatsApp Form Forwarder
-        const waForm = document.getElementById('waForm');
-        if(waForm) {
-            waForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Mencegah reload
-                const nama = document.getElementById('waNama').value;
-                const phone = document.getElementById('waPhone').value;
-                const layanan = document.getElementById('waLayanan').value;
-                const pesan = document.getElementById('waPesan').value;
+        // C. JAVASCRIPT MASTER: OMNI-FORM + VOICE FAQ + AI CHATBOT
+        document.addEventListener('DOMContentLoaded', () => {
+            // C1. OMNI-FORM SUBMISSION (WEB3FORMS + GSHEETS + WA)
+            const waForm = document.getElementById('waForm');
+            if(waForm) {
+                waForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    const targetedForm = event.target;
+                    const compiledFormData = new FormData(targetedForm);
+                    const statusMsg = document.getElementById('formStatusMsg');
+                    const submitBtn = document.getElementById('btnSubmitForm');
+                    
+                    submitBtn.innerText = "MENGIRIM DATA..."; submitBtn.disabled = true;
+                    try {
+                        await fetch('https://api.web3forms.com/submit', { method: 'POST', body: compiledFormData }); 
+                        
+                        const rawJsonData = Object.fromEntries(compiledFormData.entries());
+                        const sheetUrl = 'https://script.google.com/macros/s/AKfycbxwB6z8BSSP_D86AUPDqDWT-tajBbCdsrgcyhT6LzG_KNDKh4BrLO9mOL_ZKIRPjXoD/exec'; 
+                        await fetch(sheetUrl, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(rawJsonData) });
+                        
+                        const waNumber = "6281212204602"; 
+                        const waText = `Halo Rafi Con, saya baru saja mengisi form penawaran RAB.\n\n*Nama:* ${rawJsonData.name}\n*Nomor WA:* ${rawJsonData.whatsapp}\n*Kebutuhan:* ${rawJsonData.layanan}\n*Pesan:* ${rawJsonData.message}\n\nMohon segera direspons.`;
+                        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(waText)}`, '_blank');
+                        
+                        statusMsg.style.display = "block"; 
+                        targetedForm.reset();
+                    } catch (e) {
+                        console.error("Gagal mengirim", e);
+                    } finally {
+                        submitBtn.innerText = "Kirim Permintaan Penawaran →"; submitBtn.disabled = false;
+                    }
+                });
+            }
 
-                const waNumber = "6281212204602"; 
-                const textMessage = `Halo Tim *Rafi Con Smart Space*, saya ingin meminta penawaran RAB dengan rincian berikut:%0A%0A*Nama Lengkap:* ${nama}%0A*Nomor WA/Kontak:* ${phone}%0A*Jenis Kebutuhan:* ${layanan}%0A*Rincian Pesan:* ${pesan}%0A%0AMohon informasi lebih lanjut. Terima kasih.`;
-                const waUrl = `https://wa.me/${waNumber}?text=${textMessage}`;
-                
-                window.open(waUrl, '_blank');
+            // C2. AUDIBLE FAQ (SPEECH SYNTHESIS BROWSER NATIVE)
+            const voiceSynth = window.speechSynthesis;
+            document.querySelectorAll('.jarvis-voice-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelectorAll('.jarvis-voice-btn').forEach(btn => btn.classList.remove('jarvis-playing'));
+                    if (voiceSynth.speaking) voiceSynth.cancel();
+                    
+                    const messagePayload = button.getAttribute('data-text');
+                    const speechUtterance = new SpeechSynthesisUtterance(messagePayload);
+                    speechUtterance.lang = 'id-ID';
+                    speechUtterance.rate = 0.88;
+                    speechUtterance.pitch = 0.82;
+                    
+                    button.classList.add('jarvis-playing');
+                    speechUtterance.onend = () => button.classList.remove('jarvis-playing');
+                    speechUtterance.onerror = () => button.classList.remove('jarvis-playing');
+                    voiceSynth.speak(speechUtterance);
+                });
             });
-        }
+
+            // C3. AI CHATBOX WIDGET (REGEX NLP MURNI TANPA SERVER BLOKIR)
+            const aiBtn = document.getElementById('jarvis-ai-button');
+            const chatBox = document.getElementById('jarvis-chat-box');
+            const closeBtn = document.getElementById('jarvis-close-ai');
+            const chatInput = document.getElementById('jarvis-chat-input');
+            const sendBtn = document.getElementById('jarvis-send-chat');
+            const chatHistory = document.getElementById('jarvis-chat-history');
+
+            if(aiBtn && chatBox) {
+                aiBtn.addEventListener('click', () => { chatBox.style.display = chatBox.style.display === 'none' ? 'flex' : 'none'; });
+                closeBtn.addEventListener('click', () => chatBox.style.display = 'none');
+
+                function processAI() {
+                    const userText = chatInput.value.trim().toLowerCase();
+                    if (!userText) return;
+                    
+                    chatHistory.innerHTML += `<div class="jarvis-msg-user">${chatInput.value.trim()}</div>`;
+                    chatInput.value = '';
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    
+                    const loadId = 'jarvis-load-' + Date.now();
+                    chatHistory.innerHTML += `<div id="${loadId}" class="jarvis-msg-ai jarvis-typing">AI sedang mengetik...</div>`;
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    
+                    setTimeout(() => {
+                        document.getElementById(loadId).remove();
+                        let reply = "";
+                        
+                        if (userText.match(/harga|biaya|pricelist|berapa|murah|rab/)) { 
+                            reply = `Untuk harga container, kami menjamin penawaran terbaik di area Jabodetabek. Karena harga menyesuaikan kondisi (baru/bekas) dan ukuran (20ft/40ft), silakan hubungi tim sales kami di WhatsApp untuk pricelist detail hari ini!`; 
+                        } 
+                        else if (userText.match(/lokasi|dimana|area|pengiriman|kirim|luar kota|cikarang|jabodetabek/)) { 
+                            reply = `Workshop kami berlokasi di Cikarang. Namun tenang, kami melayani pengiriman unit ke seluruh pelabuhan dan area proyek di Indonesia menggunakan armada trailer/towing kami.`; 
+                        } 
+                        else if (userText.match(/lama|waktu|proses|tahap|bikin|rakit/)) { 
+                            reply = `Proses fabrikasi (misal modifikasi Office atau Cafe) kami kerjakan secara cepat dan presisi sesuai timeline RAB. Ketersediaan unit Dry/Standar selalu ready stock.`; 
+                        } 
+                        else if (userText.match(/pesan|order|survey|survei|konsultasi|beli|sewa|wa|hubungi/)) { 
+                            reply = `Pilihan yang tepat! Untuk konsultasi layout, pemesanan, atau cek kondisi unit, silakan langsung tekan tombol WhatsApp hijau di pojok kanan bawah, atau hubungi CS kami di +62 812-1220-4602.`; 
+                        } 
+                        else { 
+                            reply = `Pertanyaan yang bagus. Untuk hal spesifik terkait teknis kontainer, kami sarankan Anda langsung berdiskusi dengan engineer kami. Silakan hubungi CS kami via WhatsApp di +62 812-1220-4602 ya.`; 
+                        }
+                        
+                        chatHistory.innerHTML += `<div class="jarvis-msg-ai">${reply}</div>`;
+                        chatHistory.scrollTop = chatHistory.scrollHeight;
+                    }, 800);
+                }
+
+                sendBtn.addEventListener('click', processAI);
+                chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processAI(); });
+            }
+        });
     </script>
 </body>
 </html>
