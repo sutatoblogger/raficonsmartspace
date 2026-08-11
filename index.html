@@ -832,6 +832,60 @@
                 </div>
             </div>
         </section>
+		<!-- ================= SECTION VIDEO GALERI FACADE ================= -->
+<section id="galeri-proyek" class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Bukti Nyata Proyek Modifikasi Container Kami</h2>
+      <p class="text-lg text-gray-600">Pabrik & Modifikasi Container Terbesar di Jabodetabek. Cek hasil karya kami!</p>
+    </div>
+
+    <!-- GRID FACADE MULTIPLE VIDEO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- ITEM 1: Pabrik Terbesar -->
+      <div class="video-facade relative cursor-pointer rounded-2xl overflow-hidden shadow-xl group border-4 border-transparent hover:border-blue-500 transition-all duration-300" data-video="assets/video/pabrik-modifikasi-container-terbesar-jabodetabek.mp4">
+        <!-- Thumbnail Super Ringan -->
+        <img src="assets/img/pabrik-modifikasi-container-terbesar-jabodetabek.webp" alt="Pabrik modifikasi container dan peti kemas terbesar untuk area Jabodetabek" class="w-full h-72 object-cover transform transition duration-500 group-hover:scale-110" loading="lazy">
+        
+        <!-- Icon Play Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all">
+          <div class="bg-blue-600 rounded-full p-4 shadow-2xl group-hover:bg-red-600 transition-colors">
+            <svg class="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 2: Jual Container Bekas -->
+      <div class="video-facade relative cursor-pointer rounded-2xl overflow-hidden shadow-xl group border-4 border-transparent hover:border-blue-500 transition-all duration-300" data-video="assets/video/jual-container-bekas-20-feet-jakarta-murah.mp4">
+        <!-- Thumbnail Super Ringan -->
+        <img src="assets/img/jual-container-bekas-20-feet-jakarta-murah.webp" alt="Jual container bekas 20 feet kondisi mulus dan anti bocor di Jakarta" class="w-full h-72 object-cover transform transition duration-500 group-hover:scale-110" loading="lazy">
+        
+        <!-- Icon Play Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all">
+          <div class="bg-blue-600 rounded-full p-4 shadow-2xl group-hover:bg-red-600 transition-colors">
+            <svg class="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- SILAKAN COPY-PASTE ITEM DI ATAS UNTUK VIDEO KE-3 SAMPAI KE-11 -->
+      <!-- Ingat untuk mengganti data-video, src img, dan alt text sesuai nama file Anda! -->
+
+    </div>
+
+    <!-- ================= CTA DARURAT ================= -->
+    <div class="mt-16 text-center">
+      <p class="text-sm text-gray-500 mb-4">Unit terbatas! Jangan tunggu sampai proyek Anda mandek karena kehabisan stok.</p>
+      <a href="https://wa.me/6281234567890?text=Halo%20Juragan%20Container,%20saya%20tertarik%20dengan%20katalog%20video%20di%20website.%20Boleh%20minta%20pricelist?" 
+         class="inline-block bg-green-500 hover:bg-green-600 text-white font-black py-5 px-12 rounded-full shadow-[0_10px_25px_-5px_rgba(34,197,94,0.5)] transform transition hover:-translate-y-2 text-xl ring-4 ring-green-200 animate-pulse">
+        📞 TANYA HARGA VIA WHATSAPP!
+      </a>
+    </div>
+
+  </div>
+</section>
         
         <!-- ================= 8.5. CLOSED-LOOP SILO ================= -->
         <section class="py-10 border-t border-white/5 bg-[#030712]/50">
@@ -1042,9 +1096,7 @@
                 aiBtn.addEventListener('click', () => { chatBox.style.display = chatBox.style.display === 'none' ? 'flex' : 'none'; });
                 closeBtn.addEventListener('click', () => chatBox.style.display = 'none');
 
-                function processAI() {
-                    const userText = chatInput.value.trim().toLowerCase();
-                    if (!userText) return;
+                function processAI() {F
                     
                     chatHistory.innerHTML += `<div class="jarvis-msg-user">${chatInput.value.trim()}</div>`;
                     chatInput.value = '';
@@ -1084,5 +1136,29 @@
             }
         });
     </script>
+	
+	<!-- SCRIPT PENGGERAK VIDEO FACADE ZERO-BLOAT -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const facades = document.querySelectorAll('.video-facade');
+    
+    facades.forEach(facade => {
+      facade.addEventListener('click', function() {
+        const videoSrc = this.getAttribute('data-video');
+        
+        // Hapus isi div saat ini (thumbnail & icon) lalu ganti dengan tag video auto-play
+        this.innerHTML = `
+          <video controls autoplay class="w-full h-72 object-cover bg-black">
+            <source src="${videoSrc}" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video.
+          </video>
+        `;
+        
+        // Hapus class penahan klik agar tidak error jika diklik berkali-kali
+        this.classList.remove('cursor-pointer', 'group');
+      });
+    });
+  });
+</script>
 </body>
 </html>
